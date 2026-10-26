@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - El Mundo de los Monstruos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-icon">👹</span>
+                <span class="logo-text">MonstruoWorld</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Inicio</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 60px 20px;">
+        <h1 style="text-align: center; color: var(--primary-color); margin-bottom: 40px;">Contacto y Nuestra Empresa</h1>
+
+        <div class="info-grid">
+            <div class="info-column">
+                <h2>Sobre MonstruoWorld S.A.</h2>
+                <p>Somos la agencia líder en gestión de talentos monstruosos. Desde 1926, nos dedicamos a integrar a los monstruos en la sociedad humana, promoviendo la coexistencia pacífica y la comprensión mutua.</p>
+                <p>Nuestra misión es demostrar que un par de cuernos o una piel verde no definen el corazón de un ser. Trabajamos en la educación, el arte y el entretenimiento paranormal.</p>
+                <div style="margin-top: 20px; font-weight: bold;">
+                    <p>📍 Dirección: Calle del Espanto, 666, Dimensión Oscura</p>
+                    <p>📧 Email: hola@monstruoworld.com</p>
+                    <p>📞 Tel: +00 123 456 789 (Llamar solo después de medianoche)</p>
+                </div>
+            </div>
+            <div class="info-column">
+                <h2>Escríbenos</h2>
+                <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="form-group">
+                        <label for="contact-name">Tu Nombre:</label>
+                        <input type="text" id="contact-name" required placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Tu Email:</label>
+                        <input type="email" id="contact-email" required placeholder="juan@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-msg">Mensaje:</label>
+                        <textarea id="contact-msg" rows="4" required placeholder="¿En qué podemos ayudarte?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-action" style="width: 100%; border: none; cursor: pointer; padding: 10px;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mundo de Monstruos. Todos los derechos reservados. | Diseñado con Inclusividad</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Mensaje enviado con éxito! Nuestro equipo de monstruos te responderá pronto.');
+        });
+    </script>
+</body>
+</html>

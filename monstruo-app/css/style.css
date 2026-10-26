@@ -1,0 +1,420 @@
+/*
+   Diseño inclusivo y responsive
+   Colores contrastados para accesibilidad AA
+*/
+
+:root {
+    --primary-color: #4a148c; /* Viola scuro per contrasto */
+    --secondary-color: #ffab00; /* Giallo ambra */
+    --monster-green: #4caf50;
+    --text-dark: #212121;
+    --text-light: #ffffff;
+    --bg-light: #fdfdfd;
+    --footer-color: #e91e63; /* Rosa vibrante per il footer */
+    --border-color: #bbb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+/* MONSTER DRAWING (CSS Art) */
+.monster-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.monster {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    transition: transform 0.1s;
+}
+
+.monster-body {
+    position: absolute;
+    bottom: 60px;
+    left: 25px;
+    width: 150px;
+    height: 150px;
+    background-color: var(--monster-green);
+    border-radius: 50% 50% 40% 40%;
+    z-index: 2;
+    transition: background-color 0.5s ease;
+}
+
+.monster-horns {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1;
+}
+
+.horn {
+    width: 20px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50% 50% 0 0;
+}
+
+.monster-eyes {
+    position: absolute;
+    top: 30px;
+    left: 35px;
+    display: flex;
+    gap: 30px;
+}
+
+.eye {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: black;
+    border-radius: 50%;
+    top: 6px;
+    left: 6px;
+}
+
+.monster-mouth {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    width: 50px;
+    height: 10px; /* Ridotto per l'effetto chiuso */
+    border-bottom: 4px solid #333;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 3;
+    background-color: #4a0000; /* Interno bocca */
+    overflow: hidden;
+}
+
+.monster-mouth.open {
+    height: 25px;
+    border-radius: 10px 10px 50% 50%;
+}
+
+.monster-teeth {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    width: 40px;
+    height: 10px;
+    justify-content: space-around;
+}
+
+.monster-mouth.open .monster-teeth {
+    display: flex;
+}
+
+.tooth {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 0 0 2px 2px;
+}
+
+
+.monster-arms {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.arm {
+    width: 40px;
+    height: 15px;
+    background-color: var(--monster-green);
+    border-radius: 10px;
+}
+
+.monster-legs {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    z-index: 1;
+}
+
+.leg {
+    width: 15px;
+    height: 70px; /* Legs longer than arms */
+    background-color: var(--monster-green);
+    border-radius: 0 0 10px 10px;
+}
+
+.monster-name {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.btn-action {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-action:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    transform: scale(1.1);
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.info-column {
+    background: #eee;
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 8px solid var(--primary-color);
+}
+
+.info-column h2 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* Comment Section */
+.comment-section {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.comment-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-send {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-clear {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.friends-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.friends-gallery img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-color);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+/* Animation Tremore */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.shake-animation {
+    animation: shake 0.2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
